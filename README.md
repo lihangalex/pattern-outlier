@@ -12,7 +12,7 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 
 ## Project on PyPI
 You can find this project on PyPI at the following link:
-Pattern-Outlier on PyPI
+[Pattern-Outlier on PyPI]([url](https://pypi.org/project/pattern-outlier/0.1.0/))
 
 ## Acknowledgments
 
