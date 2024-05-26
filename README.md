@@ -2,9 +2,17 @@
 
 Pattern-Outlier is a Python library for detecting outliers based on frequent pattern mining, inspired by the `fpmoutliers` R package.
 
+## Features
+- Identify outliers in transaction data based on frequent pattern mining
+- Easy to use and integrate with pandas DataFrames
+
 ## License
 
 This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+
+## Project on PyPI
+You can find this project on PyPI at the following link:
+Pattern-Outlier on PyPI
 
 ## Acknowledgments
 
@@ -72,25 +80,32 @@ If you have an idea for a new feature, please open an issue on the [GitHub repos
 If you'd like to contribute code, please follow these steps:
 
 1. **Fork the repository**: Click the "Fork" button at the top of the repository page on GitHub.
+
 2. **Clone your fork**: Clone your forked repository to your local machine.
    ```bash
    git clone https://github.com/lihangalex/pattern-outlier.git
    cd pattern-outlier
    ```
+
 3. **Create a branch**: Create a new branch for your work.
    ```bash
    git checkout -b feature-branch
    ```
+
+
 4. **Make your changes**: Make your changes to the codebase.
+
 5. **Commit your changes**: Commit your changes with a clear and concise commit message.
     ```bash
     git add .
     git commit -m "Add feature or fix bug"
     ```
+
 6. ***Push your changes***: Push your changes to your forked repository.
    ```bash
    git push origin feature-branch
    ```
+
 7. **Open a pull request**: Go to the original repository and open a pull request from your forked repository. Provide a clear description of your changes and any relevant information.
 
 ### Code Style and Guidelines
