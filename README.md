@@ -2,27 +2,34 @@
 
 Pattern-Outlier is a Python library for detecting outliers based on frequent pattern mining, inspired by the `fpmoutliers` R package.
 
+
 ## Features
 - Identify outliers in transaction data based on frequent pattern mining
 - Easy to use and integrate with pandas DataFrames
+
 
 ## License
 
 This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
 
+
 ## Project on PyPI
+
 You can find this project on PyPI at the following link:
-[Pattern-Outlier on PyPI]([url](https://pypi.org/project/pattern-outlier/0.1.0/))
+[Pattern-Outlier on PyPI](https://pypi.org/project/pattern-outlier/)
+
 
 ## Acknowledgments
 
 This project is based on the `fpmoutliers` R package by Jaroslav Kuchar and Vojtěch Svátek. Original R package can be found [here](https://github.com/jaroslav-kuchar/fpmoutliers).
+
 
 ## Installation
 
 ```bash
 pip install -r requirements.txt
 ```
+
 
 ## Example Usage
 
@@ -63,17 +70,21 @@ print(df)
 
 ```
 
+
 ## How to Contribute
 
 Contributions from the community are welcome! Here are some guidelines to help you get started:
+
 
 ### Reporting Bugs
 
 If you find a bug, please report it by opening an issue on the [GitHub repository](https://github.com/lihangalex/pattern-outlier/issues). Include as much detail as possible, such as steps to reproduce the bug, the expected behavior, and screenshots if applicable.
 
+
 ### Suggesting Features
 
 If you have an idea for a new feature, please open an issue on the [GitHub repository](https://github.com/lihangalex/pattern-outlier/issues) and describe your idea in detail. Explain why it would be useful and how it should work.
+
 
 ### Submitting Pull Requests
 
@@ -108,12 +119,14 @@ If you'd like to contribute code, please follow these steps:
 
 7. **Open a pull request**: Go to the original repository and open a pull request from your forked repository. Provide a clear description of your changes and any relevant information.
 
+
 ### Code Style and Guidelines
 
 - Follow the existing code style and conventions used in the project.
 - Write clear, concise, and descriptive commit messages.
 - Include comments and docstrings to explain your code where necessary.
 - Ensure your changes do not break existing tests and write new tests if applicable.
+
 
 ### Running Tests
 
