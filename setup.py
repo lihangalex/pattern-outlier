@@ -12,6 +12,7 @@ setup(
     install_requires=[
         'pandas',
         'mlxtend',
+        'pytest',
     ],
     classifiers=[
         'Programming Language :: Python :: 3.8',
