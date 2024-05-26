@@ -1,7 +1,6 @@
 import unittest
 import pandas as pd
-from src.pattern_outlier.fpoff import FPOF
-
+from pattern_outlier.fpoff import FPOF
 
 class TestFPOF(unittest.TestCase):
     def setUp(self):
@@ -26,7 +25,6 @@ class TestFPOF(unittest.TestCase):
         self.fpof.fit(self.df)
         predictions = self.fpof.predict(self.df, threshold=2)
         self.assertEqual(len(predictions), len(self.df))
-
 
 if __name__ == '__main__':
     unittest.main()

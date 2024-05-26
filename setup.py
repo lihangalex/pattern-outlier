@@ -12,6 +12,8 @@ setup(
     install_requires=[
         'pandas',
         'mlxtend',
+    ],
+    tests_require=[
         'pytest',
     ],
     classifiers=[
