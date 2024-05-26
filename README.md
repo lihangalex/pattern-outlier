@@ -70,6 +70,20 @@ print(df)
 
 ```
 
+## Sample Output
+DataFrame with Outlier Scores and Predictions:
+   Bread  Milk  Diapers  Beer   Eggs  outlier_score  outlier
+0   True  True    False  False  True              3        1
+1   True  False   True   True   False             0        0
+2  False  True    True   True   False             2        0
+3   True  True    True   True   True              0        0
+4  False  True    True   False  False             2        0
+5  False  True    False  True   True              2        0
+6   True  True    True   False  False             3        1
+7   True  False   True   True   True              0        0
+8  False  True    True   False  False             2        0
+9  False  False   True   True   False             3        1
+
 
 ## How to Contribute
 
