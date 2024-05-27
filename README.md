@@ -19,11 +19,6 @@ You can find this project on PyPI at the following link:
 [Pattern-Outlier on PyPI](https://pypi.org/project/pattern-outlier/)
 
 
-## Acknowledgments
-
-This project is based on the `fpmoutliers` R package by Jaroslav Kuchar and Vojtěch Svátek. Original R package can be found [here](https://github.com/jaroslav-kuchar/fpmoutliers).
-
-
 ## Installation
 
 ```bash
