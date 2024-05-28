@@ -1,11 +1,15 @@
 # Pattern-Outlier
 
-Pattern-Outlier is a Python library for detecting outliers based on frequent pattern mining, inspired by the `fpmoutliers` R package.
+Pattern-Outlier is a Python library for detecting outliers based on frequent pattern mining, inspired by the `fpmoutliers` R package. The package supports multiple algorithms and allows users to dynamically calculate the most reasonable threshold and support parameters.
+
 
 
 ## Features
-- Identify outliers in transaction data based on frequent pattern mining
-- Easy to use and integrate with pandas DataFrames
+- **Support for Multiple Algorithms**: Choose from FPI, WFPI, FPOF, and FPCOF methods for outlier detection.
+- **Dynamic Parameter Calculation**: Automatically find the best support and threshold parameters.
+- **Model Persistence**: Save and load fitted models for reuse.
+- **Flexible Input Handling**: Accepts transaction data in list format.
+- **Easy to Use API**: Simple and intuitive interface for fitting models and predicting outliers.
 
 
 ## License
@@ -24,63 +28,6 @@ You can find this project on PyPI at the following link:
 ```bash
 pip install -r requirements.txt
 ```
-
-
-## Example Usage
-
-```python
-import pandas as pd
-from src.pattern_outlier.fpoff import FPOF
-
-# Create some dummy data
-data = {
-    'Bread': [1, 1, 0, 1, 0, 0, 1, 1, 0, 0],
-    'Milk': [1, 0, 1, 1, 1, 1, 1, 0, 1, 0],
-    'Diapers': [0, 1, 1, 1, 1, 0, 1, 1, 1, 1],
-    'Beer': [0, 1, 1, 1, 0, 1, 0, 1, 0, 1],
-    'Eggs': [1, 0, 0, 1, 0, 1, 0, 1, 0, 0]
-}
-
-df = pd.DataFrame(data)
-
-# Convert the data to boolean types as recommended
-df = df.astype(bool)
-
-# Initialize and fit the FPOF model
-fpof = FPOF(min_support=0.3)
-fpof.fit(df)
-
-# Score the data
-scores = fpof.score(df)
-df['outlier_score'] = scores
-
-# Predict outliers
-threshold = 2
-predictions = fpof.predict(df, threshold)
-df['outlier'] = predictions
-
-# Print the results
-print("DataFrame with Outlier Scores and Predictions:")
-print(df)
-
-```
-
-## Sample Output
-
-After running the example script, you should see an output similar to this:
-
-|   | Bread | Milk | Diapers | Beer | Eggs | outlier_score | outlier |
-|---|-------|------|---------|------|------|---------------|---------|
-| 0 | True  | True | False   | False| True | 3             | 1       |
-| 1 | True  | False| True    | True | False| 0             | 0       |
-| 2 | False | True | True    | True | False| 2             | 0       |
-| 3 | True  | True | True    | True | True | 0             | 0       |
-| 4 | False | True | True    | False| False| 2             | 0       |
-| 5 | False | True | False   | True | True | 2             | 0       |
-| 6 | True  | True | True    | False| False| 3             | 1       |
-| 7 | True  | False| True    | True | True | 0             | 0       |
-| 8 | False | True | True    | False| False| 2             | 0       |
-| 9 | False | False| True    | True | False| 3             | 1       |
 
 
 ## How to Contribute
@@ -147,3 +94,10 @@ To run the tests locally, use the following command:
 ```bash
 pytest
 ```
+
+## References
+- He, Z., Xu, X., Huang, J. Z., Deng, S.: FP-Outlier: Frequent Pattern Based Outlier Detection. Computer Science and Information Systems, Vol. 2, No. 1, 103-118. (2005).
+
+- Tang, X., Li, G., Chen, G.: Fast Detecting Outliers over Online Data Streams. 2009 International Conference on Information Engineering and Computer Science, Wuhan, 2009, pp. 1-4.
+
+- Kuchar, J., Svatek, V.: Spotlighting Anomalies using Frequent Patterns. Proceedings of the KDD 2017 Workshop on Anomaly Detection in Finance, Halifax, Nova Scotia, Canada, PMLR, 2017.

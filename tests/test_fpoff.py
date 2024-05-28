@@ -1,30 +1,56 @@
 import unittest
-import pandas as pd
-from pattern_outlier.fpoff import FPOF
+from src.pattern_outlier.fpoff import PatternOutlierDetector
 
-class TestFPOF(unittest.TestCase):
+class TestPatternOutlierDetector(unittest.TestCase):
+
     def setUp(self):
-        self.data = {'Bread': [1, 1, 0, 1, 0],
-                     'Milk': [1, 0, 1, 1, 1],
-                     'Diapers': [0, 1, 1, 1, 1],
-                     'Beer': [0, 1, 1, 1, 0],
-                     'Eggs': [1, 0, 0, 1, 0]}
-        self.df = (pd.DataFrame(self.data) > 0).astype(bool)
-        self.fpof = FPOF(min_support=0.6)
+        self.transactions = [
+            ['Bread', 'Milk', 'Diapers'],
+            ['Bread', 'Beer', 'Eggs'],
+            ['Milk', 'Diapers', 'Beer'],
+            ['Bread', 'Milk', 'Diapers', 'Beer'],
+            ['Bread', 'Milk', 'Diapers', 'Eggs'],
+            ['Milk', 'Beer', 'Eggs'],
+            ['Bread', 'Milk'],
+            ['Bread', 'Diapers', 'Beer'],
+            ['Milk', 'Diapers'],
+            ['Bread', 'Beer'],
+            ['Milk', 'Eggs'],
+            ['Diapers', 'Beer', 'Eggs'],
+            ['Bread', 'Milk', 'Diapers', 'Beer', 'Eggs'],
+            ['Bread', 'Beer', 'Diapers'],
+            ['Milk', 'Diapers', 'Eggs'],
+            ['Bread', 'Milk', 'Beer'],
+            ['Bread', 'Diapers'],
+            ['Milk', 'Beer'],
+            ['Bread', 'Eggs'],
+            ['Beer', 'Eggs'],
+            ['Chocolate', 'Beer'],
+            ['Milk', 'Candy'],
+            ['Bread', 'Diapers', 'Candy'],
+            ['Beer', 'Diapers', 'Candy'],
+            ['Bread', 'Milk', 'Eggs', 'Candy']
+        ]
 
-    def test_fit(self):
-        self.fpof.fit(self.df)
-        self.assertIsNotNone(self.fpof.frequent_itemsets)
-
-    def test_score(self):
-        self.fpof.fit(self.df)
-        scores = self.fpof.score(self.df)
-        self.assertEqual(len(scores), len(self.df))
+    def test_fit_and_score(self):
+        detector = PatternOutlierDetector(min_support=0.3, method='FPI')
+        detector.fit(self.transactions)
+        scores = detector.score(self.transactions)
+        self.assertEqual(len(scores), len(self.transactions))
 
     def test_predict(self):
-        self.fpof.fit(self.df)
-        predictions = self.fpof.predict(self.df, threshold=2)
-        self.assertEqual(len(predictions), len(self.df))
+        detector = PatternOutlierDetector(min_support=0.3, method='FPI')
+        detector.fit(self.transactions)
+        predictions = detector.predict(self.transactions, threshold=2)
+        self.assertEqual(len(predictions), len(self.transactions))
+
+    def test_save_and_load_model(self):
+        detector = PatternOutlierDetector(min_support=0.3, method='FPI')
+        detector.fit(self.transactions)
+        detector.save_model('test_model.pkl')
+        loaded_detector = PatternOutlierDetector.load_model('test_model.pkl')
+        predictions = loaded_detector.predict(self.transactions, threshold=2)
+        self.assertEqual(len(predictions), len(self.transactions))
 
 if __name__ == '__main__':
     unittest.main()
