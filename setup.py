@@ -12,6 +12,8 @@ setup(
     install_requires=[
         'pandas',
         'mlxtend',
+        'scikit-learn',
+        'joblib',
     ],
     tests_require=[
         'pytest',

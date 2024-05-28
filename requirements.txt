@@ -1,3 +1,5 @@
 pandas
 mlxtend
 pytest
+joblib
+scikit-learn
