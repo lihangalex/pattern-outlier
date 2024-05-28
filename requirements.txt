@@ -1,5 +1,5 @@
-pandas
-mlxtend
-pytest
-joblib
-scikit-learn
+pandas==2.2.2
+mlxtend==0.23.1
+pytest==8.2.1
+joblib==1.4.2
+scikit-learn==1.5.0
